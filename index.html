@@ -1,114 +1,177 @@
-
 <!DOCTYPE html>
 <html lang="english">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
-
-
-    <meta name="author" content="Aaron Elmquist" />
-    <meta name="description" content="" />
-<meta property="og:site_name" content="Leaked Memory"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="Leaked Memory"/>
-<meta property="og:description" content=""/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content=""/>
-<meta property="og:image" content="/images/python_logo.png">
-
-  <title>Leaked Memory</title>
-
+    <meta charset="utf-8" />
+    <title>Leaked Memory</title>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./theme/css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/print.css" type="text/css" media="print" />
+    <meta name="generator" content="Pelican" />
 </head>
 <body>
-  <aside>
-    <div>
-      <a href="">
-        <img src="/images/python_logo.png" alt="Leaked Memories" title="Leaked Memories">
-      </a>
-      <h1><a href="">Leaked Memories</a></h1>
+    <header>
+        <nav>
+            <ul>
+                <li class="selected"><a href=".">Home</a></li>
+                <li><a href="./tags">Tags</a></li>
+                <li><a href="./authors">Authors</a></li>
+                <li><a href="./categories">Categories</a></li>
+                <li><a href="./archives">Archives</a></li>
+                <li><a href="./about-me">About Me</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href=".">Leaked Memory</a></h1>
+            <h2>Sharing My Adventures in Coding</h2>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">            <h4 class="date">Apr 19, 2017</h4>
 
-<p>Sharing Adventures in Coding</p>
-      <nav>
-        <ul class="list">
+            <article class="post">
+                <h2 class="title">
+                    <a href="./chipy-mentorship-part-1-of-3.html" rel="bookmark" title="Permanent Link to &quot;Chipy Mentorship (Part 1 of 3)&quot;">Chipy Mentorship (Part 1 of 3)</a>
+                </h2>
 
-          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
-          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
-          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
-          <li><a href="#" target="_blank">You can modify those links in your config file</a></li>
-        </ul>
-      </nav>
+                <h1>About the Chipy Mentorship</h1>
+<p>If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at <a href="https://chipymentor.org/">Chipy Mentor</a>.  Also stop by and meet the good people from <a href="http://chipy.org">Chipy</a> that sponsor this event. </p>
+<p>Personally, I think Chipy is one of the best meetups in the country, and they run one heck of a mentorships program as well. Essentially, they pair a volunteer mentor with a mentee who receives three months of guidance on a project of their choice. They also require participation in a variety of workshops and check-ins to make sure everyone stays on track.  </p>
+<h1>My Mentor</h1>
+<p>I'm really glad that I got paired with Jordan. Not only is he knowledgable about his craft, but he's also super helpful and patient. I really like the fact that he has us using a workflow similar to the professional developers where I push my work to GitHub for his review and approval before any merges are made to the project's main branch. </p>
+<p>Also, we both rock older Thinkpads laptops which I think is cool :).</p>
+<h1>About My Project - Hanyu</h1>
+<p>I decided to build a web application that could help people learn Mandarin Chinese. Basically, the application will have a database of Chinese characters and phrases and recommend what a user should study next based on the Chinese they already know and the frequency of the character's usage in Chinese.</p>
+<h1>The Development Stack</h1>
+<p>I am using some pretty standard python web tech for this project. The heavy hitters are Django and PostgreSQL.  I am also using Git and GitHub for source control, and a splash of Bootstrap to make things look a little nicer.  The project is hosted on AWS with Nginx and Gunicorn serving pages. </p>
+<h1>Preparation</h1>
+<p>I knew it would be unproductive to walk into this program without any preparation.  So, I worked through a good chunk of the following resources the month prior to my mentorship.  </p>
+<ul>
+<li><a href="https://www.lynda.com/Django-tutorials/Up-Running-Python-Django/386287-2.html">Lynda.com's Up and Running with Django</a></li>
+<li><a href="http://djangobook.com/">The first 6 chapters of Django Core</a></li>
+<li><a href="https://teamtreehouse.com/">Team Treehouse's Django Track</a></li>
+<li><a href="https://git-scm.com/book/en/v2">The First 3 chapters of the Pro Git</a></li>
+</ul>
+<p>Before working through these materials I didn't have any Django experience. I have to say I am really glad that I took the time to worked through them. Doing so has allowed me to ask reasonable questions about Django from the start. </p>
+<p>By the way, if you want to get started in Django development, all these resources are inexpensive or freely available through the local library. </p>
+<h1>Progress</h1>
+<p>I've made a lot of progress the past few weeks. Prior to this post I was able to do the following:</p>
+<ul>
+<li>Setup a GitHub Repository.  </li>
+<li>Setup a Development Environment.</li>
+<li>Learn some PostgreSQL.</li>
+<li>Setup an EC2 and an RDS instances on AWS.</li>
+<li>Register a Domain Name. </li>
+<li>Build a Django Management Command to Load the Database from <a href="https://cc-cedict.org/wiki/start">CC-CEDICT</a>.</li>
+<li>Build a Django Management Command to Update the Database <a href="https://cc-cedict.org/wiki/start">CC-CEDICT</a>.</li>
+<li>Implement Full Text Search Over the Entries in the Database</li>
+<li>Build Django views and forms to search the dictionary.</li>
+<li>Install and learn a little Bootstrap3 and django-bootstrap3 to make the site look better.</li>
+<li>Setup this blog on GitHub Pages using Pelican.  </li>
+</ul>
+<p>I've also drafted a fair amount coded for user accounts and pushed it to GitHub for Jordan's review at our next weekly meeting. </p>
+<h1>Populating the Database</h1>
+<p>If this application is to be of any value, it needs a reasonably large source of Chinese words and their English equivalents.  Fortunately for me, there is a community project which creates and maintains <a href="https://cc-cedict.org/wiki/start">CC-CEDICT</a>.  For my first task, Jordan had me make a Django management command to load this data into a database. Here's what I wrote: </p>
+<div class="highlight"><pre><span></span><span class="c1"># This module will load the Entry table using the CC-CEDIct Chinese to English dictionary located</span>
+<span class="c1"># at https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip</span>
 
-      <ul class="social">
-        <li><a class="sc-Github" href="https://github.com/elmq0022" target="_blank"><i class="fa fa-Github"></i></a></li>
-        <li><a class="sc-LinkedIn" href="https://www.linkedin.com/in/aaron-elmquist-99800839/" target="_blank"><i class="fa fa-LinkedIn"></i></a></li>
-      </ul>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">django.core.management.base</span> <span class="kn">import</span> <span class="n">BaseCommand</span><span class="p">,</span> <span class="n">CommandError</span>
+
+<span class="kn">from</span> <span class="nn">dictionary</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Command</span><span class="p">(</span><span class="n">BaseCommand</span><span class="p">):</span>
+    <span class="n">help</span> <span class="o">=</span> <span class="s1">&#39;loads the online version of CC-CEDICT Chinese to English dictionary into the database&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># The CC-CEDICT dictionary is a work in progress.</span>
+        <span class="c1"># The following regex pattern will match all well formed entries in the dictionary</span>
+
+        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        (?P&lt;traditional&gt;\w+)                # first character</span>
+<span class="s1">        \s+                                 # spaces</span>
+<span class="s1">        (?P&lt;simple&gt;\w+)                     # second character</span>
+<span class="s1">        \s+                                 # spaces</span>
+<span class="s1">        \[                                  # start pronunc</span>
+<span class="s1">        (?P&lt;pin_yin&gt;[a-z\d\s]+)             # pronunc pattern</span>
+<span class="s1">        \]                                  # end pronunc</span>
+<span class="s1">        \s+                                 # spaces</span>
+<span class="s1">        /                                   # start the defintions </span>
+<span class="s1">        (?P&lt;definitions&gt;.+)                 # definitions</span>
+<span class="s1">        /                                   # end the defintions </span>
+<span class="s1">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_entries</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">M</span><span class="o">|</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="o">|</span><span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip&#39;</span>
+
+    <span class="k">def</span> <span class="nf">download_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Download Chinese-English dictionary zip file and return the contents as a string.</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">with</span> <span class="n">z</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">text</span>
+
+    <span class="k">def</span> <span class="nf">add_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matches</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span>
+                <span class="n">traditional</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;traditional&#39;</span><span class="p">],</span>
+                <span class="n">simple</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;simple&#39;</span><span class="p">],</span>
+                <span class="n">pin_yin</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;pin_yin&#39;</span><span class="p">],</span>
+                <span class="n">definitions</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;definitions&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">models</span><span class="o">.</span><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">bulk_create</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">count</span>
+
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Downloading dictionary from {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">))</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_dict</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Download complete.&quot;</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Deleting entries from database.&quot;</span><span class="p">)</span>
+        <span class="n">models</span><span class="o">.</span><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Entering data into database.&quot;</span><span class="p">)</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_entries</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_to_db</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Complete. There were {} entries entered into the database.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+</pre></div>
+
+
+<p>This did take a several attempts on my part. My first iteration, for example, did not use Django's <code>bulk_create</code> function.  I figured hitting the database over and over would be inefficient, I didn't realize it would take hours to load.  Also, my intially code had two models, one for the Chinese entries and another for the English definitions.  That approach proved to be uncessarily complicated while not providing any tangible benefits.</p>
+<h1>Conclusion</h1>
+<p>So far my mentorship is off to a great start and I should have a useful project by the end.  If you want to see my work so far, checkout the live app at <a href="http://www.hanyu.pro">hanyu.pro</a> or the code on <a href="https://github.com/elmq0022/hanyu">GitHub</a>.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="./chipy-mentorship-part-1-of-3.html">posted at 10:21</a>
+                    &nbsp;&middot;&nbsp;<a href="./category/chipy-python-mentorship.html" rel="tag">Chipy, Python, Mentorship</a>
+                </div>
+            </article>
+
+            <div class="clear"></div>
+            <footer>
+                <p>
+                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
+                &middot;
+                Powered by <a href="http://getpelican.com">Pelican</a>
+            </footer>
+        </div>
+        <div class="clear"></div>
     </div>
-
-
-  </aside>
-  <main>
-
-
-
-
-<article>
-  <header>
-    <h2><a href="/first-post.html#first-post">First Post</a></h2>
-    <p>
-          Posted on Sat 08 April 2017 in <a href="/category/misc.html">misc</a>
-
-
-
-    </p>
-  </header>
-  <div>
-      <h1>My Test Post</h1>
-<p>Let's see if I can get a post on github pages.</p>
-      <br>
-      <a class="btn" href="/first-post.html#first-post">    Continue reading
-</a>
-  </div>
-</article>
-
-  <div class="pagination">
-  </div>
-
-
-
-
-    <footer>
-<p>&copy; Aaron Elmquist </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
-</p>    </footer>
-  </main>
-
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " Leaked Memory ",
-  "url" : "",
-  "image": "/images/python_logo.png",
-  "description": ""
-}
-</script>
 </body>
 </html>
