@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Leaked Memories - Aaron Elmquist</title><link href="/" rel="alternate"></link><link href="/feeds/aaron-elmquist.atom.xml" rel="self"></link><id>/</id><updated>2017-04-19T10:21:00-05:00</updated><entry><title>Chipy Mentorship (Part 1 of 3)</title><link href="/2017/04/chipy-mentorship-part-1-of-3/" rel="alternate"></link><published>2017-04-19T10:21:00-05:00</published><updated>2017-04-19T10:21:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-04-19:/2017/04/chipy-mentorship-part-1-of-3/</id><summary type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
+&lt;p&gt;If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at &lt;a href="https://chipymentor.org/"&gt;Chipy Mentor&lt;/a&gt;.  Also stop by and meet the good people from &lt;a href="http://chipy.org"&gt;Chipy&lt;/a&gt; that sponsor this event. &lt;/p&gt;
+&lt;p&gt;Personally, I …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
+&lt;p&gt;If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at &lt;a href="https://chipymentor.org/"&gt;Chipy Mentor&lt;/a&gt;.  Also stop by and meet the good people from &lt;a href="http://chipy.org"&gt;Chipy&lt;/a&gt; that sponsor this event. &lt;/p&gt;
+&lt;p&gt;Personally, I think Chipy is one of the best meetups in the country, and they run one heck of a mentorships program as well. Essentially, they pair a volunteer mentor with a mentee who receives three months of guidance on a project of their choice. They also require participation in a variety of workshops and check-ins to make sure everyone stays on track.  &lt;/p&gt;
+&lt;h1&gt;My Mentor&lt;/h1&gt;
+&lt;p&gt;I'm really glad that I got paired with Jordan. Not only is he knowledgable about his craft, but he's also super helpful and patient. I really like the fact that he has us using a workflow similar to the professional developers where I push my work to GitHub for his review and approval before any merges are made to the project's main branch. &lt;/p&gt;
+&lt;p&gt;Also, we both rock older Thinkpads laptops which I think is cool :).&lt;/p&gt;
+&lt;h1&gt;About My Project - Hanyu&lt;/h1&gt;
+&lt;p&gt;I decided to build a web application that could help people learn Mandarin Chinese. Basically, the application will have a database of Chinese characters and phrases and recommend what a user should study next based on the Chinese they already know and the frequency of the character's usage in Chinese.&lt;/p&gt;
+&lt;h1&gt;The Development Stack&lt;/h1&gt;
+&lt;p&gt;I am using some pretty standard python web tech for this project. The heavy hitters are Django and PostgreSQL.  I am also using Git and GitHub for source control, and a splash of Bootstrap to make things look a little nicer.  The project is hosted on AWS with Nginx and Gunicorn serving pages. &lt;/p&gt;
+&lt;h1&gt;Preparation&lt;/h1&gt;
+&lt;p&gt;I knew it would be unproductive to walk into this program without any preparation.  So, I worked through a good chunk of the following resources the month prior to my mentorship.  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.lynda.com/Django-tutorials/Up-Running-Python-Django/386287-2.html"&gt;Lynda.com's Up and Running with Django&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://djangobook.com/"&gt;The first 6 chapters of Django Core&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://teamtreehouse.com/"&gt;Team Treehouse's Django Track&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://git-scm.com/book/en/v2"&gt;The First 3 chapters of the Pro Git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before working through these materials I didn't have any Django experience. I have to say I am really glad that I took the time to worked through them. Doing so has allowed me to ask reasonable questions about Django from the start. &lt;/p&gt;
+&lt;p&gt;By the way, if you want to get started in Django development, all these resources are inexpensive or freely available through the local library. &lt;/p&gt;
+&lt;h1&gt;Progress&lt;/h1&gt;
+&lt;p&gt;I've made a lot of progress the past few weeks. Prior to this post I was able to do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setup a GitHub Repository.  &lt;/li&gt;
+&lt;li&gt;Setup a Development Environment.&lt;/li&gt;
+&lt;li&gt;Learn some PostgreSQL.&lt;/li&gt;
+&lt;li&gt;Setup an EC2 and an RDS instances on AWS.&lt;/li&gt;
+&lt;li&gt;Register a Domain Name. &lt;/li&gt;
+&lt;li&gt;Build a Django Management Command to Load the Database from &lt;a href="https://cc-cedict.org/wiki/start"&gt;CC-CEDICT&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Build a Django Management Command to Update the Database &lt;a href="https://cc-cedict.org/wiki/start"&gt;CC-CEDICT&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Implement Full Text Search Over the Entries in the Database&lt;/li&gt;
+&lt;li&gt;Build Django views and forms to search the dictionary.&lt;/li&gt;
+&lt;li&gt;Install and learn a little Bootstrap3 and django-bootstrap3 to make the site look better.&lt;/li&gt;
+&lt;li&gt;Setup this blog on GitHub Pages using Pelican.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I've also drafted a fair amount coded for user accounts and pushed it to GitHub for Jordan's review at our next weekly meeting. &lt;/p&gt;
+&lt;h1&gt;Populating the Database&lt;/h1&gt;
+&lt;p&gt;If this application is to be of any value, it needs a reasonably large source of Chinese words and their English equivalents.  Fortunately for me, there is a community project which creates and maintains &lt;a href="https://cc-cedict.org/wiki/start"&gt;CC-CEDICT&lt;/a&gt;.  For my first task, Jordan had me make a Django management command to load this data into a database. Here's what I wrote: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# This module will load the Entry table using the CC-CEDIct Chinese to English dictionary located&lt;/span&gt;
+&lt;span class="c1"&gt;# at https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;zipfile&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.management.base&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BaseCommand&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CommandError&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dictionary&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Command&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BaseCommand&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;loads the online version of CC-CEDICT Chinese to English dictionary into the database&amp;#39;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="c1"&gt;# The CC-CEDICT dictionary is a work in progress.&lt;/span&gt;
+        &lt;span class="c1"&gt;# The following regex pattern will match all well formed entries in the dictionary&lt;/span&gt;
+
+        &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;        (?P&amp;lt;traditional&amp;gt;\w+)                # first character&lt;/span&gt;
+&lt;span class="s1"&gt;        \s+                                 # spaces&lt;/span&gt;
+&lt;span class="s1"&gt;        (?P&amp;lt;simple&amp;gt;\w+)                     # second character&lt;/span&gt;
+&lt;span class="s1"&gt;        \s+                                 # spaces&lt;/span&gt;
+&lt;span class="s1"&gt;        \[                                  # start pronunc&lt;/span&gt;
+&lt;span class="s1"&gt;        (?P&amp;lt;pin_yin&amp;gt;[a-z\d\s]+)             # pronunc pattern&lt;/span&gt;
+&lt;span class="s1"&gt;        \]                                  # end pronunc&lt;/span&gt;
+&lt;span class="s1"&gt;        \s+                                 # spaces&lt;/span&gt;
+&lt;span class="s1"&gt;        /                                   # start the defintions &lt;/span&gt;
+&lt;span class="s1"&gt;        (?P&amp;lt;definitions&amp;gt;.+)                 # definitions&lt;/span&gt;
+&lt;span class="s1"&gt;        /                                   # end the defintions &lt;/span&gt;
+&lt;span class="s1"&gt;        &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;valid_entries&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip&amp;#39;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;download_dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="c1"&gt;# Download Chinese-English dictionary zip file and return the contents as a string.&lt;/span&gt;
+        &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ZipFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BytesIO&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extractall&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;file_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;namelist&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add_to_db&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;matches&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+        &lt;span class="n"&gt;entries&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;matches&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;entry&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+                &lt;span class="n"&gt;traditional&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;traditional&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                &lt;span class="n"&gt;simple&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;simple&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                &lt;span class="n"&gt;pin_yin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pin_yin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                &lt;span class="n"&gt;definitions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;definitions&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;entry&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+
+        &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bulk_create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Downloading dictionary from {}.&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;download_dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Download complete.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Deleting entries from database.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Entry&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Entering data into database.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;matches&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;valid_entries&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;finditer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_to_db&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;matches&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Complete. There were {} entries entered into the database.&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This did take a several attempts on my part. My first iteration, for example, did not use Django's &lt;code&gt;bulk_create&lt;/code&gt; function.  I figured hitting the database over and over would be inefficient, I didn't realize it would take hours to load.  Also, my intially code had two models, one for the Chinese entries and another for the English definitions.  That approach proved to be uncessarily complicated while not providing any tangible benefits.&lt;/p&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;So far my mentorship is off to a great start and I should have a useful project by the end.  If you want to see my work so far, checkout the live app at &lt;a href="http://www.hanyu.pro"&gt;hanyu.pro&lt;/a&gt; or the code on &lt;a href="https://github.com/elmq0022/hanyu"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>

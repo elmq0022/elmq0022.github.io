@@ -1,179 +1,261 @@
-<!DOCTYPE html>
-<html lang="english">
+<!doctype html>
+<html lang="en-US">
+
 <head>
     <meta charset="utf-8" />
-    <title>Leaked Memory | Articles by Aaron Elmquist</title>
-    <link rel="shortcut icon" type="image/png" href="../favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../theme/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="../theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../theme/css/print.css" type="text/css" media="print" />
-    <meta name="generator" content="Pelican" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Leaked Memories - Sharing Coding Experiences</title>
+    <meta name="description" content="" />
+    <meta name="Author" content="Ken M. Lai(networktsukkomime.me)" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/html5.js"></script>
+    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/respond.min.js"></script>
+    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/excanvas.compiled.js"></script>
+    <![endif]-->
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Dosis:300,400" rel="stylesheet" type="text/css" />
+
+
+    <!-- CORE CSS FRAMEWORK -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- CSS TEMPLATE -->
+    <link href="/theme/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/theme/css/framework.css" rel="stylesheet" type="text/css" />
+    <link href="/theme/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="/theme/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <link href="/theme/css/blog.css" rel="stylesheet" type="text/css" />
+
+    <!-- ICONS -->
+        <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/299446/logo.png" type="image/x-icon" />
+        <link rel="icon" href="https://dl.dropboxusercontent.com/u/299446/logo.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/299446/logo.png" type="image/x-icon" />
+
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <!-- Morenizr -->
+    <script type="text/javascript" src="/theme/js/modernizr.min.js"></script>
+
+    <!-- google authorship -->
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
+    <!-- HOME -->
+    <section id="home" class="full-screen"><!-- full-screen or half-screen (550px height) -->
 
-                <li class="ephemeral selected"><a href="../author/aaron-elmquist.html">Aaron Elmquist</a></li>
-                <li><a href="..">Home</a></li>
-                <li><a href="../tags">Tags</a></li>
-                <li><a href="../authors">Authors</a></li>
-                <li><a href="../categories">Categories</a></li>
-                <li><a href="../archives">Archives</a></li>
-                <li><a href="../about-me">About Me</a></li>
-            </ul>
-        </nav>
-        <div class="header_box">
-            <h1><a href="..">Leaked Memory</a></h1>
-            <h2>Sharing My Adventures in Coding</h2>
-        </div>
-    </header>
-    <div id="wrapper">
-        <div id="content">            <h4 class="date">Apr 19, 2017</h4>
+    <div id="slider">
 
-            <article class="post">
-                <h2 class="title">
-                    <a href="../chipy-mentorship-part-1-of-3.html" rel="bookmark" title="Permanent Link to &quot;Chipy Mentorship (Part 1 of 3)&quot;">Chipy Mentorship (Part 1 of 3)</a>
-                </h2>
+        <ul class="slides-container">
 
-                <h1>About the Chipy Mentorship</h1>
-<p>If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at <a href="https://chipymentor.org/">Chipy Mentor</a>.  Also stop by and meet the good people from <a href="http://chipy.org">Chipy</a> that sponsor this event. </p>
-<p>Personally, I think Chipy is one of the best meetups in the country, and they run one heck of a mentorships program as well. Essentially, they pair a volunteer mentor with a mentee who receives three months of guidance on a project of their choice. They also require participation in a variety of workshops and check-ins to make sure everyone stays on track.  </p>
-<h1>My Mentor</h1>
-<p>I'm really glad that I got paired with Jordan. Not only is he knowledgable about his craft, but he's also super helpful and patient. I really like the fact that he has us using a workflow similar to the professional developers where I push my work to GitHub for his review and approval before any merges are made to the project's main branch. </p>
-<p>Also, we both rock older Thinkpads laptops which I think is cool :).</p>
-<h1>About My Project - Hanyu</h1>
-<p>I decided to build a web application that could help people learn Mandarin Chinese. Basically, the application will have a database of Chinese characters and phrases and recommend what a user should study next based on the Chinese they already know and the frequency of the character's usage in Chinese.</p>
-<h1>The Development Stack</h1>
-<p>I am using some pretty standard python web tech for this project. The heavy hitters are Django and PostgreSQL.  I am also using Git and GitHub for source control, and a splash of Bootstrap to make things look a little nicer.  The project is hosted on AWS with Nginx and Gunicorn serving pages. </p>
-<h1>Preparation</h1>
-<p>I knew it would be unproductive to walk into this program without any preparation.  So, I worked through a good chunk of the following resources the month prior to my mentorship.  </p>
-<ul>
-<li><a href="https://www.lynda.com/Django-tutorials/Up-Running-Python-Django/386287-2.html">Lynda.com's Up and Running with Django</a></li>
-<li><a href="http://djangobook.com/">The first 6 chapters of Django Core</a></li>
-<li><a href="https://teamtreehouse.com/">Team Treehouse's Django Track</a></li>
-<li><a href="https://git-scm.com/book/en/v2">The First 3 chapters of the Pro Git</a></li>
-</ul>
-<p>Before working through these materials I didn't have any Django experience. I have to say I am really glad that I took the time to worked through them. Doing so has allowed me to ask reasonable questions about Django from the start. </p>
-<p>By the way, if you want to get started in Django development, all these resources are inexpensive or freely available through the local library. </p>
-<h1>Progress</h1>
-<p>I've made a lot of progress the past few weeks. Prior to this post I was able to do the following:</p>
-<ul>
-<li>Setup a GitHub Repository.  </li>
-<li>Setup a Development Environment.</li>
-<li>Learn some PostgreSQL.</li>
-<li>Setup an EC2 and an RDS instances on AWS.</li>
-<li>Register a Domain Name. </li>
-<li>Build a Django Management Command to Load the Database from <a href="https://cc-cedict.org/wiki/start">CC-CEDICT</a>.</li>
-<li>Build a Django Management Command to Update the Database <a href="https://cc-cedict.org/wiki/start">CC-CEDICT</a>.</li>
-<li>Implement Full Text Search Over the Entries in the Database</li>
-<li>Build Django views and forms to search the dictionary.</li>
-<li>Install and learn a little Bootstrap3 and django-bootstrap3 to make the site look better.</li>
-<li>Setup this blog on GitHub Pages using Pelican.  </li>
-</ul>
-<p>I've also drafted a fair amount coded for user accounts and pushed it to GitHub for Jordan's review at our next weekly meeting. </p>
-<h1>Populating the Database</h1>
-<p>If this application is to be of any value, it needs a reasonably large source of Chinese words and their English equivalents.  Fortunately for me, there is a community project which creates and maintains <a href="https://cc-cedict.org/wiki/start">CC-CEDICT</a>.  For my first task, Jordan had me make a Django management command to load this data into a database. Here's what I wrote: </p>
-<div class="highlight"><pre><span></span><span class="c1"># This module will load the Entry table using the CC-CEDIct Chinese to English dictionary located</span>
-<span class="c1"># at https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip</span>
+        <!-- Item 1 -->
+        <li>
+            <div class="image-caption">
+            <hr /><hr />
+            <div class="inner">
+                <h2 class="bigtext strtoupper nomargin">Leaked Memories</h2>
+            </div>
+            <hr /><hr />
+            </div>
+            <span class="overlay"></span>
+            <div style="background-image: url('images/bamboo.jpg');" class="fullscreen-img"></div>
+           
 
-<span class="kn">import</span> <span class="nn">io</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">zipfile</span>
+        </li>
+        </ul>
 
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">django.core.management.base</span> <span class="kn">import</span> <span class="n">BaseCommand</span><span class="p">,</span> <span class="n">CommandError</span>
-
-<span class="kn">from</span> <span class="nn">dictionary</span> <span class="kn">import</span> <span class="n">models</span>
-
-<span class="k">class</span> <span class="nc">Command</span><span class="p">(</span><span class="n">BaseCommand</span><span class="p">):</span>
-    <span class="n">help</span> <span class="o">=</span> <span class="s1">&#39;loads the online version of CC-CEDICT Chinese to English dictionary into the database&#39;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="c1"># The CC-CEDICT dictionary is a work in progress.</span>
-        <span class="c1"># The following regex pattern will match all well formed entries in the dictionary</span>
-
-        <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">        (?P&lt;traditional&gt;\w+)                # first character</span>
-<span class="s1">        \s+                                 # spaces</span>
-<span class="s1">        (?P&lt;simple&gt;\w+)                     # second character</span>
-<span class="s1">        \s+                                 # spaces</span>
-<span class="s1">        \[                                  # start pronunc</span>
-<span class="s1">        (?P&lt;pin_yin&gt;[a-z\d\s]+)             # pronunc pattern</span>
-<span class="s1">        \]                                  # end pronunc</span>
-<span class="s1">        \s+                                 # spaces</span>
-<span class="s1">        /                                   # start the defintions </span>
-<span class="s1">        (?P&lt;definitions&gt;.+)                 # definitions</span>
-<span class="s1">        /                                   # end the defintions </span>
-<span class="s1">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">valid_entries</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">M</span><span class="o">|</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="o">|</span><span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip&#39;</span>
-
-    <span class="k">def</span> <span class="nf">download_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Download Chinese-English dictionary zip file and return the contents as a string.</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
-        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
-        <span class="n">file_name</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">with</span> <span class="n">z</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">text</span>
-
-    <span class="k">def</span> <span class="nf">add_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matches</span><span class="p">):</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
-            <span class="n">entry</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span>
-                <span class="n">traditional</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;traditional&#39;</span><span class="p">],</span>
-                <span class="n">simple</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;simple&#39;</span><span class="p">],</span>
-                <span class="n">pin_yin</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;pin_yin&#39;</span><span class="p">],</span>
-                <span class="n">definitions</span><span class="o">=</span><span class="n">match</span><span class="p">[</span><span class="s1">&#39;definitions&#39;</span><span class="p">]</span>
-            <span class="p">)</span>
-            <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="n">models</span><span class="o">.</span><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">bulk_create</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">count</span>
-
-    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Downloading dictionary from {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">))</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_dict</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Download complete.&quot;</span><span class="p">)</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Deleting entries from database.&quot;</span><span class="p">)</span>
-        <span class="n">models</span><span class="o">.</span><span class="n">Entry</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Entering data into database.&quot;</span><span class="p">)</span>
-        <span class="n">matches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_entries</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_to_db</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Complete. There were {} entries entered into the database.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
-</pre></div>
-
-
-<p>This did take a several attempts on my part. My first iteration, for example, did not use Django's <code>bulk_create</code> function.  I figured hitting the database over and over would be inefficient, I didn't realize it would take hours to load.  Also, my intially code had two models, one for the Chinese entries and another for the English definitions.  That approach proved to be uncessarily complicated while not providing any tangible benefits.</p>
-<h1>Conclusion</h1>
-<p>So far my mentorship is off to a great start and I should have a useful project by the end.  If you want to see my work so far, checkout the live app at <a href="http://www.hanyu.pro">hanyu.pro</a> or the code on <a href="https://github.com/elmq0022/hanyu">GitHub</a>.</p>
-                <div class="clear"></div>
-
-                <div class="info">
-                    <a href="../chipy-mentorship-part-1-of-3.html">posted at 10:21</a>
-                    &nbsp;&middot;&nbsp;<a href="../category/chipy-python-mentorship.html" rel="tag">Chipy, Python, Mentorship</a>
-                </div>
-            </article>
-
-            <div class="clear"></div>
-            <footer>
-                <p>
-                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
-                &middot;
-                Powered by <a href="http://getpelican.com">Pelican</a>
-            </footer>
-        </div>
-        <div class="clear"></div>
     </div>
+
+    </section>
+    <!-- /HOME -->
+
+
+
+    <!-- Main Nav -->
+<!-- Main Nav -->
+<header id="header" style="margin-top:0">
+
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".navbar-collapse"></button>
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand scrollTo" href="#home">
+          <img src="images/bamboo.jpg" alt="" width="50" height="50" />
+          <span class="hidden-xs">Leaked Memories</span>
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <!-- Fullscreen Button - Unavailable for IE -->
+        <a href="#" class="btn-fullscreen"><i class="fa fa-external-link"></i></a>
+
+        <ul class="nav navbar-nav navbar-right">
+          <!-- If the user wants to make articles the home page then remove blog link, and make about and work links point to old home page. -->
+            <li><a href="/index.html#home">Home</a></li>
+            <li><a href="/index.html#about">About</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+              <ul class="dropdown-menu" style="background-color:#000">
+                <li style="background-color:#000"><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+                <li style="background-color:#000"><a href="http://python.org/" target="_blank">Python.org</a></li>
+                <li style="background-color:#000"><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+
+    </div>
+  </nav>
+</header>
+<!-- /Main Nav -->
+    <!-- /Main Nav -->
+
+    <!-- ABOUT -->
+    <section id="about">
+    <div class="container">
+        <header class="text-center">
+        <h1>ABOUT</h1>
+        </header>
+
+        <div class="divider"><!-- lines divider --></div>
+
+        <article class="text-center big-paragraph">
+            <p>My Name is Aaron.</p>
+        </article>
+
+
+        <!-- <article>
+        <div class="row text-left"> -->
+
+            <!-- Passion -->
+        <!--  <div class="col-md-4">
+            <h3>Passion</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
+            </div> -->
+
+
+            <!-- Precision -->
+            <!-- <div class="col-md-4">
+            <h3>Precision</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
+            </div> -->
+
+
+            <!-- Simplicity -->
+            <!-- <div class="col-md-4">
+            <h3>Simplicity</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
+            </div> -->
+
+        <!-- </div>
+        </article> -->
+
+    </div>
+    </section>
+    <!-- /ABOUT -->
+
+
+    <!-- BLOG -->
+    <section id="quick-blog" class="alternate">
+    <div class="container">
+
+        <header class="text-center">
+        <h1>BLOG</h1>
+        <p>RECENT ENTRIES</p>
+        </header>
+
+        <div class="divider"><!-- lines divider --></div>
+
+        <article>
+        <div class="row animate_fade_in">
+
+            <div class="col-md-4 quick-hover">
+                <div class="quick-item">
+                    <h4><a class="theme_link" href="/2017/04/chipy-mentorship-part-1-of-3/">Chipy Mentorship (Part 1 of 3)</a></h4>
+                <p><h1>About the Chipy Mentorship</h1>
+<p>If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at <a href="https://chipymentor.org/">Chipy Mentor</a>.  Also stop by and meet the good people from <a href="http://chipy.org">Chipy</a> that sponsor this event. </p>
+<p>Personally, I …</p></p>
+                <a href="/2017/04/chipy-mentorship-part-1-of-3/" class="btn btn-xs theme_link"><i class="fa fa-sign-out"></i> READ MORE</a>
+                </div>
+            </div>
+ 
+
+        </div>
+        </article>
+
+        <div class="divider"><!-- lines divider --></div>
+
+        <article class="text-center" data-animation="bounceIn">
+        <a href="blog.html" class="plusNav" title="more from blog">+</a> 
+        </article>
+
+    </div>
+    </section>
+    <!-- /BLOG -->
+
+<!-- FOOTER -->
+<footer>
+
+  <!-- SCROOL TO TOP -->
+  <a href="#toTop" class="fa fa-arrow-up toTop"></a>
+
+  <div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6 copyright">
+            Leaked Memories
+            <br />2015 &copy; All Rights Reserved.
+        </div>
+
+        <div class="col-md-6 text-right">
+              <a href="https://github.com/elmq0022" class="social fa fa-github" target="_blank"></a>
+              <a href="https://www.linkedin.com/in/aaron-elmquist-99800839/" class="social fa fa-linkedin" target="_blank"></a>
+        </div>
+
+    </div>
+
+  </div>
+</footer>
+<!-- /FOOTER -->
+
+
+
+<!-- CORE FILES -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.isotope.js"></script>
+<script type="text/javascript" src="/theme/js/masonry.js"></script>
+
+<!-- PLUGINS -->
+<script type="text/javascript" src="/theme/js/jquery.fitvids.min.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.appear.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.superslides.min.js"></script>
+<script type="text/javascript" src="/theme/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.countTo.js"></script>
+<script type="text/javascript" src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/theme/js/holder.js"></script>
+<!-- delete on production -->
+
+<!-- js scripts -->
+<script async type="text/javascript" src="/theme/js/scripts.js"></script>
+
+<script type="text/javascript" src="/theme/js/ImageAutoResize.js"></script>
+<script type="text/javascript" src="/theme/js/application.js"></script>
+
+
+
+
 </body>
-</html>
