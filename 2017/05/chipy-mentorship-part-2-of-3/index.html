@@ -93,53 +93,147 @@
 
       <div class="row">
         <div id="blog_main_area" class="left col-md-9">
-  <!-- blog item -->
+  <!-- article title -->
+  <header>
+      <h1>Chipy Mentorship (Part 2 of 3)</h1>
+    <small class="fsize13">
+            <a href="/category/chipy-python-mentorship.html" rel="tag tooltip" class="label label-default light" data-placement="right" data-original-title="2 articles in this category"><i class="fa fa-dot-circle-o"></i> Chipy, Python, Mentorship</a>
+      <a href="/2017/05/chipy-mentorship-part-2-of-3/#disqus_thread" class="scrollTo label label-default light" data-disqus-identifier="2017/05/chipy-mentorship-part-2-of-3/"><i class="fa fa-comment-o"></i> ?? Comments</a>
+      <span class="label label-default light">24/May/2017 Wed</span> 
+    </small>
+  </header>
 
-      <div class="item">
-        <div class="item-title">
-            <h2><a class="theme_link" href="/2017/05/chipy-mentorship-part-2-of-3/">Chipy Mentorship (Part 2 of 3)</a></h2>
-          <a href="category/chipy-python-mentorship.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Chipy, Python, Mentorship</a> 
-          <a href="/2017/05/chipy-mentorship-part-2-of-3/#disqus_thread" class="label label-default light"><i class="fa fa-comment-o"></i> ?? Comments</a>
-          <span class="label label-default light">24/May/2017 Wed</span>
-        </div>
-        <!-- image -->
-
-        <!-- blog short preview -->
-            <h1>TLDR;</h1>
+  <article class='content'>
+    <h1>TLDR;</h1>
 <p>Since my last post I've improved a lot of the code, cleaned up the site's look, and added some data analytic capabilities thanks to <a href="https://github.com/fxsjy/jieba">jieba</a>.
 My next steps are building a SPA quiz application and automating my AWS deploy using fabric.
-To see my progress visit <a href="https://www.hanyu.pro">hanyu.pro</a> and …</p>
+To see my progress visit <a href="https://www.hanyu.pro">hanyu.pro</a> and <a href="https://github.com/elmq0022/hanyu">github</a>.
+<br>
+<br></p>
+<h1>Recap</h1>
+<p>In my last post, I discussed my substantial progress on my first Django application, Hanyu.
+Prior to that post, I had done everything from getting setup with git and github to loading my database and deploying to AWS.
+The pace was pretty fast and left me with a some clean up to do.
+Here's just a few of the items I either improved or fixed:</p>
+<ul>
+<li>Reworked the management commands to load and update the database.</li>
+<li>Added all the models to Django's admin.</li>
+<li>Improved the full-text search capabilities of the site.</li>
+<li>Created a search that parses a Chinese sentence and returns all the definitions.</li>
+<li>Cleaned up the site's user authentication.</li>
+</ul>
+<p>With those out of the way I was free to add new features.</p>
+<p><br></p>
+<h1>How is Chinese Like an Obfuscated C Contest?</h1>
+<p>There's a lot of differences between Chinese and English.
+Most people are aware that the language uses characters instead of words composed of letters.
+Another large difference is the syntax for delimiting groups of characters.
+There isn't one.
+Where English words are space delimited, Chinese skips delimiters all together.
+Since I want to do some basic frequency this poses a problem.
+Consider this sentence, 我的大黄狗, which can be parsed a couple different ways:</p>
+<div class="highlight"><pre><span></span>我 的 大黄 狗
+</pre></div>
 
-        <!-- read more button -->
-        <a href="/2017/05/chipy-mentorship-part-2-of-3/" class="btn btn-xs theme_link"><i class="fa fa-sign-out"></i> READ MORE</a>
-      </div>
-      <div class="item">
-        <div class="item-title">
-            <h2><a class="theme_link" href="/2017/04/chipy-mentorship-part-1-of-3/">Chipy Mentorship (Part 1 of 3)</a></h2>
-          <a href="category/chipy-python-mentorship.html" class="label label-default light"><i class="fa fa-dot-circle-o"></i> Chipy, Python, Mentorship</a> 
-          <a href="/2017/04/chipy-mentorship-part-1-of-3/#disqus_thread" class="label label-default light"><i class="fa fa-comment-o"></i> ?? Comments</a>
-          <span class="label label-default light">20/Apr/2017 Thu</span>
-        </div>
-        <!-- image -->
 
-        <!-- blog short preview -->
-            <h1>About the Chipy Mentorship</h1>
-<p>If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at <a href="https://chipymentor.org/">Chipy Mentor</a>.  Also, stop by and meet the people from <a href="http://chipy.org">Chipy</a> that sponsor this event. </p>
-<p>Personally, I think …</p>
+<p>This roughly means "my rhubarb dog".  Yeah, that's not a sentence you would expect to utter.
+Another option is:</p>
+<div class="highlight"><pre><span></span>我 的 大 黄 狗
+</pre></div>
 
-        <!-- read more button -->
-        <a href="/2017/04/chipy-mentorship-part-1-of-3/" class="btn btn-xs theme_link"><i class="fa fa-sign-out"></i> READ MORE</a>
-      </div>
- 
- 
-  <!-- /blog item -->
 
-  <!-- PAGINATION -->
-  <ul class="pagination">
-    <li id="prev" class="prev disabled"><a rel="prev">&larr; Previous</a></li>
-    <li id="next" class="next"><a rel="next">&rarr; Next</a></li>
-  </ul>
-  <!-- /PAGINATION -->
+<p>This means "my big yellow dog".  Obviously, this is a more sensible choice.</p>
+<p>So I don't have the skill or the time to segment an entire corpus of text by hand.
+So how can I have the computer do this?
+Well, first I would need a lot of data that's already been parsed, i.e. a training set.
+And then, I could use some kind of mathematical model of conditional expectations based on various n-graphs of the corpus.
+This model could then be used as an algorithm for the computer to reasonably segment sentences.
+This is a good problem to work on, but my goal is to make a website that helps people (myself included) learn Chinese.
+Reinventing this wheel, when there are already good wheels out there means there isn't much reason for me to roll my own code.</p>
+<p>The first library I tried was the Stanford segmenter.
+I figured this might be a solid choice because, well, it's from Stanford.
+Plus, python's NLTK package has binding to get this Java package.
+After some mild cursing, I got everything working on my dev machine, but there were some issues in production.</p>
+<p>Basically, the JVM is slow to start and uses a lot of memory.
+I could work around the slow to startup times by running the algorithm as a service and making requests from python.
+But, the amount of ram the JVM required was something I couldn't overcome on an EC2 instance allocated to AWS's free tier.</p>
+<p>Happily, the second package I found, <a href="https://github.com/fxsjy/jieba">jieba</a>, is pure python.
+The interface is dead simple like a python package should be.
+Plus for my purposes it's actually pretty performant.
+Python +1, Java nada.</p>
+<p>By the way, if you're wondering, both jieba and the Stanford segmenter fail the test above.
+There options to further tune both packages though.</p>
+<p><br></p>
+<h1>Next Project - Suggesting Items to Learn</h1>
+<p>Now that I can segment Chinese text, I can do a frequency analysis on a corpus of documents.
+This, in turn, will allow me to suggest frequently used characters and words for a user to learn.
+I have, in fact, started implementing some of this, but there are still details to work through.</p>
+<p><br></p>
+<h1>Hey a Better Looking Site</h1>
+<p>I don't know a lot on the frontend, and although I've heard the terms javascript, jquery, and bootstrap before, I've never really used them.
+So, when I stumbled upon <a href="https://github.com/fxsjy/jieba">AdminLTE</a>, I was pretty stoked.
+I wouldn't call this template pretty, but it is pretty reasonable.
+After screwing with Django templates for a couple days and making a couple of tags I had everything wired up.
+Doing all this actually did improve my frontend skills a bit.</p>
+<p><br></p>
+<h1>Dev, Ops, or Maybe Both?</h1>
+<p>Jordan, my mentor, helped me a lot with the initial AWS deploy.
+I then spent a couple of frustrating but rewarding days getting AWS, nginx, gunicorn, and Django playing together.</p>
+<p>Since then Jordan has help harden the AWS security a bit.
+First, he had me create a user with read only access to server the application.
+This should help prevent a hacker from hijacking the active account and using it modify code on the site directly.
+The other issue was getting an encryption service up and running, so the site serves HTTPS instead of HTTP.
+This is important because I don't want password sent to my site unencrypted.
+This was mostly just following the instructions on <a href="https://letsencrypt.org/">Let's Encrypt</a> and a few key modifications to my AWS config.</p>
+<p><br></p>
+<h1>What's Next</h1>
+<p>There's a two big ticket items that I want to finish up before the mentorship is over.
+One is to build a quiz application, and I want to do it using a SPA architecture.
+The other is to automate my deploy to AWS.</p>
+<p>Jordan and I discussed the architecture of the quiz application the other day.
+We rather quickly settled on a basic approach for my first attempt.
+Without getting into too much detail, I'll use <a href="https://jquery.com/">JQuery</a> for the frontend.
+I know it's not "fashionable", but it works, and I don't have pickup an entire framework.</p>
+<p>The backend will be pretty straight forward too.
+I'll use Django's class based views and the JSON Response Mixin to serve up JSON data.
+Again, I've elected to use what's already there instead of a framework like Django REST Framework or tastypie.
+As I start to figure things out more or when things get more complicated, I will pickup a framework then.</p>
+<p>I've actually really enjoyed learning more about AWS and Linux throughout my project.
+The one thing that's been kind of a bummer is not having a one click deploy.
+To remedy this, I'm going automate my AWS deploy with fabric.
+Ansible, Chef, and Puppet are more first tier choices for larger projects these days.
+But, at this stage, my deploy isn't crazy complicated, and I probably won't need any additional EC2 instances anytime soon.</p>
+<p><br></p>
+<h1>Checkout My Progress</h1>
+<p>You can see the actual site at <a href="https://www.hanyu.pro">www.hanyu.pro</a>.
+All the code is on <a href="https://github.com/elmq0022/hanyu/">github</a>.</p>
+  </article>
+
+    <h3>Related content</h3>
+    <!-- TODO: Use fancier related layout, as in http://kevin.deldycke.com/2012/04/beautify-contextual-related-posts-wordpress-plugin/ -->
+    <ul>
+        <li><a href="/2017/04/chipy-mentorship-part-1-of-3/">Chipy Mentorship (Part 1 of 3)</a></li>
+      </ul>
+  <div class="divider"><!-- lines divider --></div>
+
+  <!-- SOCIAL -->
+<p class="socials">
+    <a href="http://www.facebook.com/sharer/sharer.php?u=/2017/05/chipy-mentorship-part-2-of-3/" class="rounded-icon social fa fa-facebook" target="_blank" title="Share on Facebook"><!-- facebook --></a>
+    <a href="http://twitter.com/home?status=/2017/05/chipy-mentorship-part-2-of-3/" class="rounded-icon social fa fa-twitter" target="_blank" title="Share on Twitter"><!-- twitter --></a>
+    <a href="https://plus.google.com/share?url=/2017/05/chipy-mentorship-part-2-of-3/" class="rounded-icon social fa fa-google-plus" target="_blank" title="Share on Google+"><!-- google plus --></a>
+    <a href="http://pinterest.com/pin/create/link/?url==/2017/05/chipy-mentorship-part-2-of-3/" class="rounded-icon social fa fa-pinterest"  target="_blank" title="Share on Pinterest"><!-- pinterest --></a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=/2017/05/chipy-mentorship-part-2-of-3/&title=Chipy Mentorship (Part 2 of 3)&summary=&source=" class="rounded-icon social fa fa-linkedin" target="_blank" title="Share on Linkedin"><!-- linkedin --></a>
+</p>  
+
+  <!-- TAGS -->
+  <p class="fsize16"> Tags:
+        <a href="/tag/python.html" rel="tooltip" class="label label-default light" data-placement="right" data-original-title="2 articles with this tag"><i class="fa fa-tags"></i> Python</a>
+        <a href="/tag/mentorship.html" rel="tooltip" class="label label-default light" data-placement="right" data-original-title="2 articles with this tag"><i class="fa fa-tags"></i> Mentorship</a>
+        <a href="/tag/chipy.html" rel="tooltip" class="label label-default light" data-placement="right" data-original-title="2 articles with this tag"><i class="fa fa-tags"></i> Chipy</a>
+  </p>
+
+  <hr /><!-- divider -->
+
         </div>
 
         <!-- SIDEBAR -->

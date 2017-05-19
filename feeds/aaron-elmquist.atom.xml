@@ -1,16 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Leaked Memories - Aaron Elmquist</title><link href="/" rel="alternate"></link><link href="/feeds/aaron-elmquist.atom.xml" rel="self"></link><id>/</id><updated>2017-04-20T12:00:00-05:00</updated><entry><title>Chipy Mentorship (Part 1 of 3)</title><link href="/2017/04/chipy-mentorship-part-1-of-3/" rel="alternate"></link><published>2017-04-20T12:00:00-05:00</published><updated>2017-04-20T12:00:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-04-20:/2017/04/chipy-mentorship-part-1-of-3/</id><summary type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Leaked Memories - Aaron Elmquist</title><link href="/" rel="alternate"></link><link href="/feeds/aaron-elmquist.atom.xml" rel="self"></link><id>/</id><updated>2017-05-24T12:00:00-05:00</updated><entry><title>Chipy Mentorship (Part 2 of 3)</title><link href="/2017/05/chipy-mentorship-part-2-of-3/" rel="alternate"></link><published>2017-05-24T12:00:00-05:00</published><updated>2017-05-24T12:00:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-05-24:/2017/05/chipy-mentorship-part-2-of-3/</id><summary type="html">&lt;h1&gt;TLDR;&lt;/h1&gt;
+&lt;p&gt;Since my last post I've improved a lot of the code, cleaned up the site's look, and added some data analytic capabilities thanks to &lt;a href="https://github.com/fxsjy/jieba"&gt;jieba&lt;/a&gt;.
+My next steps are building a SPA quiz application and automating my AWS deploy using fabric.
+To see my progress visit &lt;a href="https://www.hanyu.pro"&gt;hanyu.pro&lt;/a&gt; and …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;TLDR;&lt;/h1&gt;
+&lt;p&gt;Since my last post I've improved a lot of the code, cleaned up the site's look, and added some data analytic capabilities thanks to &lt;a href="https://github.com/fxsjy/jieba"&gt;jieba&lt;/a&gt;.
+My next steps are building a SPA quiz application and automating my AWS deploy using fabric.
+To see my progress visit &lt;a href="https://www.hanyu.pro"&gt;hanyu.pro&lt;/a&gt; and &lt;a href="https://github.com/elmq0022/hanyu"&gt;github&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;Recap&lt;/h1&gt;
+&lt;p&gt;In my last post, I discussed my substantial progress on my first Django application, Hanyu.
+Prior to that post, I had done everything from getting setup with git and github to loading my database and deploying to AWS.
+The pace was pretty fast and left me with a some clean up to do.
+Here's just a few of the items I either improved or fixed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reworked the management commands to load and update the database.&lt;/li&gt;
+&lt;li&gt;Added all the models to Django's admin.&lt;/li&gt;
+&lt;li&gt;Improved the full-text search capabilities of the site.&lt;/li&gt;
+&lt;li&gt;Created a search that parses a Chinese sentence and returns all the definitions.&lt;/li&gt;
+&lt;li&gt;Cleaned up the site's user authentication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With those out of the way I was free to add new features.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;How is Chinese Like an Obfuscated C Contest?&lt;/h1&gt;
+&lt;p&gt;There's a lot of differences between Chinese and English.
+Most people are aware that the language uses characters instead of words composed of letters.
+Another large difference is the syntax for delimiting groups of characters.
+There isn't one.
+Where English words are space delimited, Chinese skips delimiters all together.
+Since I want to do some basic frequency this poses a problem.
+Consider this sentence, 我的大黄狗, which can be parsed a couple different ways:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;我 的 大黄 狗
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This roughly means "my rhubarb dog".  Yeah, that's not a sentence you would expect to utter.
+Another option is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;我 的 大 黄 狗
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This means "my big yellow dog".  Obviously, this is a more sensible choice.&lt;/p&gt;
+&lt;p&gt;So I don't have the skill or the time to segment an entire corpus of text by hand.
+So how can I have the computer do this?
+Well, first I would need a lot of data that's already been parsed, i.e. a training set.
+And then, I could use some kind of mathematical model of conditional expectations based on various n-graphs of the corpus.
+This model could then be used as an algorithm for the computer to reasonably segment sentences.
+This is a good problem to work on, but my goal is to make a website that helps people (myself included) learn Chinese.
+Reinventing this wheel, when there are already good wheels out there means there isn't much reason for me to roll my own code.&lt;/p&gt;
+&lt;p&gt;The first library I tried was the Stanford segmenter.
+I figured this might be a solid choice because, well, it's from Stanford.
+Plus, python's NLTK package has binding to get this Java package.
+After some mild cursing, I got everything working on my dev machine, but there were some issues in production.&lt;/p&gt;
+&lt;p&gt;Basically, the JVM is slow to start and uses a lot of memory.
+I could work around the slow to startup times by running the algorithm as a service and making requests from python.
+But, the amount of ram the JVM required was something I couldn't overcome on an EC2 instance allocated to AWS's free tier.&lt;/p&gt;
+&lt;p&gt;Happily, the second package I found, &lt;a href="https://github.com/fxsjy/jieba"&gt;jieba&lt;/a&gt;, is pure python.
+The interface is dead simple like a python package should be.
+Plus for my purposes it's actually pretty performant.
+Python +1, Java nada.&lt;/p&gt;
+&lt;p&gt;By the way, if you're wondering, both jieba and the Stanford segmenter fail the test above.
+There options to further tune both packages though.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;Next Project - Suggesting Items to Learn&lt;/h1&gt;
+&lt;p&gt;Now that I can segment Chinese text, I can do a frequency analysis on a corpus of documents.
+This, in turn, will allow me to suggest frequently used characters and words for a user to learn.
+I have, in fact, started implementing some of this, but there are still details to work through.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;Hey a Better Looking Site&lt;/h1&gt;
+&lt;p&gt;I don't know a lot on the frontend, and although I've heard the terms javascript, jquery, and bootstrap before, I've never really used them.
+So, when I stumbled upon &lt;a href="https://github.com/fxsjy/jieba"&gt;AdminLTE&lt;/a&gt;, I was pretty stoked.
+I wouldn't call this template pretty, but it is pretty reasonable.
+After screwing with Django templates for a couple days and making a couple of tags I had everything wired up.
+Doing all this actually did improve my frontend skills a bit.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;Dev, Ops, or Maybe Both?&lt;/h1&gt;
+&lt;p&gt;Jordan, my mentor, helped me a lot with the initial AWS deploy.
+I then spent a couple of frustrating but rewarding days getting AWS, nginx, gunicorn, and Django playing together.&lt;/p&gt;
+&lt;p&gt;Since then Jordan has help harden the AWS security a bit.
+First, he had me create a user with read only access to server the application.
+This should help prevent a hacker from hijacking the active account and using it modify code on the site directly.
+The other issue was getting an encryption service up and running, so the site serves HTTPS instead of HTTP.
+This is important because I don't want password sent to my site unencrypted.
+This was mostly just following the instructions on &lt;a href="https://letsencrypt.org/"&gt;Let's Encrypt&lt;/a&gt; and a few key modifications to my AWS config.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;What's Next&lt;/h1&gt;
+&lt;p&gt;There's a two big ticket items that I want to finish up before the mentorship is over.
+One is to build a quiz application, and I want to do it using a SPA architecture.
+The other is to automate my deploy to AWS.&lt;/p&gt;
+&lt;p&gt;Jordan and I discussed the architecture of the quiz application the other day.
+We rather quickly settled on a basic approach for my first attempt.
+Without getting into too much detail, I'll use &lt;a href="https://jquery.com/"&gt;JQuery&lt;/a&gt; for the frontend.
+I know it's not "fashionable", but it works, and I don't have pickup an entire framework.&lt;/p&gt;
+&lt;p&gt;The backend will be pretty straight forward too.
+I'll use Django's class based views and the JSON Response Mixin to serve up JSON data.
+Again, I've elected to use what's already there instead of a framework like Django REST Framework or tastypie.
+As I start to figure things out more or when things get more complicated, I will pickup a framework then.&lt;/p&gt;
+&lt;p&gt;I've actually really enjoyed learning more about AWS and Linux throughout my project.
+The one thing that's been kind of a bummer is not having a one click deploy.
+To remedy this, I'm going automate my AWS deploy with fabric.
+Ansible, Chef, and Puppet are more first tier choices for larger projects these days.
+But, at this stage, my deploy isn't crazy complicated, and I probably won't need any additional EC2 instances anytime soon.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;Checkout My Progress&lt;/h1&gt;
+&lt;p&gt;You can see the actual site at &lt;a href="https://www.hanyu.pro"&gt;www.hanyu.pro&lt;/a&gt;.
+All the code is on &lt;a href="https://github.com/elmq0022/hanyu/"&gt;github&lt;/a&gt;.&lt;/p&gt;</content><category term="Chipy"></category><category term="Python"></category><category term="Mentorship"></category></entry><entry><title>Chipy Mentorship (Part 1 of 3)</title><link href="/2017/04/chipy-mentorship-part-1-of-3/" rel="alternate"></link><published>2017-04-20T12:00:00-05:00</published><updated>2017-04-20T12:00:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-04-20:/2017/04/chipy-mentorship-part-1-of-3/</id><summary type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
 &lt;p&gt;If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at &lt;a href="https://chipymentor.org/"&gt;Chipy Mentor&lt;/a&gt;.  Also, stop by and meet the people from &lt;a href="http://chipy.org"&gt;Chipy&lt;/a&gt; that sponsor this event. &lt;/p&gt;
 &lt;p&gt;Personally, I think …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
 &lt;p&gt;If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at &lt;a href="https://chipymentor.org/"&gt;Chipy Mentor&lt;/a&gt;.  Also, stop by and meet the people from &lt;a href="http://chipy.org"&gt;Chipy&lt;/a&gt; that sponsor this event. &lt;/p&gt;
 &lt;p&gt;Personally, I think Chipy is one of the best meetups in the country, and they run one heck of a mentorship program as well. Essentially, they pair a volunteer mentor with a mentee who receives three months of guidance on a project of their choice. They also require participation in a variety of workshops, blog posts, and check-ins to make sure everyone stays on track.  &lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;My Mentor&lt;/h1&gt;
 &lt;p&gt;I'm really glad that I got paired with Jordan. Not only is he knowledgable about his craft, but he's also super helpful and patient. I really like the fact that he has us using a workflow similar to professional developers where I push my work to GitHub for his review and approval before any merges are made to the project's main branch. &lt;/p&gt;
 &lt;p&gt;Also, we both rock older Thinkpads laptops which I think is cool :).&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;About My Project - Hanyu&lt;/h1&gt;
 &lt;p&gt;I decided to build a web application that could help people learn Mandarin Chinese. Basically, the application will have a database of Chinese characters and phrases and recommend what a user should study next based on the Chinese they already know and the frequency of the character's usage in Chinese.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;The Development Stack&lt;/h1&gt;
 &lt;p&gt;I am using some pretty standard python web tech for this project. The heavy hitters are Django and PostgreSQL.  I am also using Git and GitHub for source control, and a splash of Bootstrap3 to make things look a little nicer.  The project is hosted on AWS with Nginx and Gunicorn serving pages. &lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;Preparation&lt;/h1&gt;
 &lt;p&gt;I knew it would be unproductive to start this program without any preparation.  So, I worked through a good chunk of the following resources the month prior to the mentorship kickoff.  &lt;/p&gt;
 &lt;ul&gt;
@@ -21,6 +130,7 @@
 &lt;/ul&gt;
 &lt;p&gt;This preperation has allowed me to ask my mentor reasonable questions about Django from the start and considerably accelerated my progress. &lt;/p&gt;
 &lt;p&gt;By the way, if you want to get started in Django development, all these resources are inexpensive or freely available through the local library. &lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;Progress&lt;/h1&gt;
 &lt;p&gt;I've done quite a bit of work over the past few weeks. Prior to this post I was able to do the following:&lt;/p&gt;
 &lt;ul&gt;
@@ -37,12 +147,82 @@
 &lt;li&gt;Leveraged Django's class based views to build a user authentication app.  &lt;/li&gt;
 &lt;li&gt;Setup this blog on GitHub Pages using &lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt;. &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;Populating the Database&lt;/h1&gt;
 &lt;p&gt;If this application is to be of any value, it needs a reasonably large source of Chinese words and their English equivalents.  Fortunately for me, there is a community project which creates and maintains &lt;a href="https://cc-cedict.org/wiki/start"&gt;CC-CEDICT&lt;/a&gt;.  For my first task, Jordan had me make a Django management command to load this data into a database. Here's the code that I wrote: &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# This module will load the Entry table using the CC-CEDIct Chinese to English dictionary located&lt;/span&gt;
-&lt;span class="c1"&gt;# at https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.zip&lt;/span&gt;
-
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;zipfile&lt;/span&gt;
 
@@ -116,8 +296,9 @@
 
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Complete. There were {} entries entered into the database.&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;This did take several attempts on my part. My first iteration, for example, did not use Django's &lt;code&gt;bulk_create&lt;/code&gt; function.  I figured hitting the database over and over would be inefficient, I didn't realize it would take hours to load.  Also, my intial code had two models, one for the Chinese entries and another for the English definitions.  That approach proved to be uncessarily complicated while not providing any tangible benefits.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;So far my mentorship is off to a great start, and I should have a useful project by the end.  If you want to see my work so far, checkout the live app at &lt;a href="http://hanyu.pro"&gt;hanyu.pro&lt;/a&gt; or the code on &lt;a href="https://github.com/elmq0022/hanyu"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</content></entry></feed>
+&lt;p&gt;So far my mentorship is off to a great start, and I should have a useful project by the end.  If you want to see my work so far, checkout the live app at &lt;a href="http://hanyu.pro"&gt;hanyu.pro&lt;/a&gt; or the code on &lt;a href="https://github.com/elmq0022/hanyu"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</content><category term="Chipy"></category><category term="Python"></category><category term="Mentorship"></category></entry></feed>

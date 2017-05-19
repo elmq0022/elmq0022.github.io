@@ -5,36 +5,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2017-04-19T23:45:47-00:00</lastmod>
+<lastmod>2017-05-18T22:03:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2017-04-19T23:45:47-00:00</lastmod>
+<lastmod>2017-05-18T22:03:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2017-04-19T23:45:47-00:00</lastmod>
+<lastmod>2017-05-18T22:03:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2017-04-19T23:45:47-00:00</lastmod>
+<lastmod>2017-05-18T22:03:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/blog.html</loc>
-<lastmod>2017-04-19T23:45:47-00:00</lastmod>
+<lastmod>2017-05-18T22:03:04-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/2017/05/chipy-mentorship-part-2-of-3/</loc>
+<lastmod>2017-05-24T12:00:00-05:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -47,14 +54,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/chipy-python-mentorship.html</loc>
-<lastmod>2017-04-20T12:00:00-05:51</lastmod>
+<lastmod>2017-05-24T12:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/python.html</loc>
+<lastmod>2017-05-24T12:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/mentorship.html</loc>
+<lastmod>2017-05-24T12:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/chipy.html</loc>
+<lastmod>2017-05-24T12:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/author/aaron-elmquist.html</loc>
-<lastmod>2017-04-20T12:00:00-05:51</lastmod>
+<lastmod>2017-05-24T12:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
