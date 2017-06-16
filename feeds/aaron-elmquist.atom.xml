@@ -104,7 +104,94 @@ But, at this stage, my deploy isn't crazy complicated, and I probably won't need
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h1&gt;Checkout My Progress&lt;/h1&gt;
 &lt;p&gt;You can see the actual site at &lt;a href="https://www.hanyu.pro"&gt;www.hanyu.pro&lt;/a&gt;.
-All the code is on &lt;a href="https://github.com/elmq0022/hanyu/"&gt;github&lt;/a&gt;.&lt;/p&gt;</content><category term="Chipy"></category><category term="Python"></category><category term="Mentorship"></category></entry><entry><title>Chipy Mentorship (Part 1 of 3)</title><link href="/2017/04/chipy-mentorship-part-1-of-3/" rel="alternate"></link><published>2017-04-20T12:00:00-05:00</published><updated>2017-04-20T12:00:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-04-20:/2017/04/chipy-mentorship-part-1-of-3/</id><summary type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
+All the code is on &lt;a href="https://github.com/elmq0022/hanyu/"&gt;github&lt;/a&gt;.&lt;/p&gt;</content><category term="Chipy"></category><category term="Python"></category><category term="Mentorship"></category></entry><entry><title>Chipy Mentorship (Part 3 of 3)</title><link href="/2017/05/chipy-mentorship-part-3-of-3/" rel="alternate"></link><published>2017-05-24T12:00:00-05:00</published><updated>2017-05-24T12:00:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-05-24:/2017/05/chipy-mentorship-part-3-of-3/</id><summary type="html">&lt;h1&gt;TLDR&lt;/h1&gt;
+&lt;p&gt;With a little help from JQuery the final bits of my project came together with a multiple choice quiz implemented as a single page application.
+Additionally, deployment to EC2 is now just a single shell command thanks to Fabric and some straight forward python scripting. &lt;/p&gt;
+&lt;h1&gt;Building the Quiz App …&lt;/h1&gt;</summary><content type="html">&lt;h1&gt;TLDR&lt;/h1&gt;
+&lt;p&gt;With a little help from JQuery the final bits of my project came together with a multiple choice quiz implemented as a single page application.
+Additionally, deployment to EC2 is now just a single shell command thanks to Fabric and some straight forward python scripting. &lt;/p&gt;
+&lt;h1&gt;Building the Quiz App&lt;/h1&gt;
+&lt;p&gt;The single page app I had in mind was pretty basic.
+Really I just needed to push some JSON data around and excute a few DOM manipulations.
+There are probably some benefits to learning one of the many JavaScript frameworks out there.&lt;br&gt;
+But the JSON handling and DOM manipulation I needed were rather minimal, so I just stuck with JQuery.&lt;/p&gt;
+&lt;p&gt;The changes needed to make a Django view function work with JSON data weren't all that bad.
+First, I gave my Quiz Model a "toJSON" method that returns a dictionary representation of a quiz instance.
+Second, instead of returning a rendered template the function now returns an HTTP response with JSON as its content type.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;content_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;application/json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;There was some additional boiler plate code needed to select the CSRF token send it with the request.
+If you want to read more about how ths is done there's information the &lt;a href="https://docs.djangoproject.com/en/1.11/ref/csrf/"&gt;Django documentation&lt;/a&gt;.
+Also a &lt;a href="https://realpython.com/blog/python/django-and-ajax-form-submissions/"&gt;RealPython&lt;/a&gt; has a nice tutorial about this. &lt;/p&gt;
+&lt;h1&gt;Deploying with Fabric&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.fabfile.org/"&gt;Fabric&lt;/a&gt; is a library that allows python to run shell commands locally or remotely via SSH. 
+A really basic fab file could look something like this:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# in fabfile.py&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;caffinate_coder&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Making some coffee.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Now calling "fab caffinate_coder" from the command line will echo "Making some coffee."
+As you can see this is straight python code.
+To do meaningful work for a deploy these functions will need to issue shell commands locally and on the remote host.
+Fabric makes this dead simple with the "local" and "run" commands.
+Here's a more illustrative example to discuss.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# in fabfile.py&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hosts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;list of remote hosts ip address or domain name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,]&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt; user name for remote &amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key_filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt; absolute path to ssh key file &amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use_ssh_config&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;no_agent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;list_local_files&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ls&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;list_remote_files&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ls&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;This example sets some environment variable which tell Fabric how to connect to the remote host.
+Hopefully their meaning is clear from their name and description.
+The first function uses the "local" command and "ls" to list the files on the local machine.
+The second function does the same thing, but the command will be executed on each of the remote servers.&lt;/p&gt;
+&lt;p&gt;Since this is all so simple, I almost had my deploy script working on the first try.
+There were a couple issues to debug.
+First Fabric was looking form a .ssh/config file, and I don't have one on my Windows machine.
+The solutions was simple enough; create an empty .ssh/config file in my user directory.
+The other thing was getting virtualenvwrapper to work properly with remote commands.
+Fabric provides a couple nice &lt;a href=""&gt;context manager&lt;/a&gt; , &lt;a href=""&gt;prefix&lt;/a&gt;, for things like this, but simply using workon &amp;lt; environment &amp;gt; didn't work.
+The solution to this was to specify the full path to the workon command.&lt;/p&gt;
+&lt;p&gt;As an added bonus for all the python 3 converts, I got some good advice on Chipy's Slack channel to use Fabric3.
+This is a fork of Fabric that supports a more minimal, and perhapse more sane, set of python version, python 2.7+ and python 3.4+.
+The next release of Fabric will probably have better python 3 support.&lt;/p&gt;
+&lt;h1&gt;Thanks to my Mentor, Chipy, and All the Fantastic Mentors and Mentees&lt;/h1&gt;
+&lt;p&gt;The python metorship has been a fun and rewarding experience for me.
+I didn't anticipate learning as much as I did or covering the large range of topics that Jordan and I discussed.&lt;/p&gt;
+&lt;p&gt;I have to thank Jordan for taking the time to mentor me these last 3 months.
+He has been patient and extremely helpful guiding me through this project.&lt;/p&gt;
+&lt;p&gt;I also want to say thank you to Ray, Hana, and Patrick for organizing everything.
+And thanks to all the other Chipy mentors for dedicating their valuable free time to make this a great experience for everyone invovled. &lt;/p&gt;</content><category term="Chipy"></category><category term="Python"></category><category term="Mentorship"></category></entry><entry><title>Chipy Mentorship (Part 1 of 3)</title><link href="/2017/04/chipy-mentorship-part-1-of-3/" rel="alternate"></link><published>2017-04-20T12:00:00-05:00</published><updated>2017-04-20T12:00:00-05:00</updated><author><name>Aaron Elmquist</name></author><id>tag:None,2017-04-20:/2017/04/chipy-mentorship-part-1-of-3/</id><summary type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
 &lt;p&gt;If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at &lt;a href="https://chipymentor.org/"&gt;Chipy Mentor&lt;/a&gt;.  Also, stop by and meet the people from &lt;a href="http://chipy.org"&gt;Chipy&lt;/a&gt; that sponsor this event. &lt;/p&gt;
 &lt;p&gt;Personally, I think …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;About the Chipy Mentorship&lt;/h1&gt;
 &lt;p&gt;If you are reading this you likely already know about the Chipy Mentorship Program and how great it is. If not, you really should check it out at &lt;a href="https://chipymentor.org/"&gt;Chipy Mentor&lt;/a&gt;.  Also, stop by and meet the people from &lt;a href="http://chipy.org"&gt;Chipy&lt;/a&gt; that sponsor this event. &lt;/p&gt;
