@@ -1,7 +1,9 @@
 <extend template="base.shtml">
 <head id="head">
 </head>
-<body id="body">
-	<h1 :text="$page.title"></h1>
+<div id="content">
+	<h1 class="title">elmquist.dev</h1>
+	<h2 class="subtitle">a development blog</h2>
+	<p class="tagline">follow my software adventures</p>
 	<div :html="$page.content()"></div>
-</body>
+</div>

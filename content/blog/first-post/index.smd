@@ -12,7 +12,6 @@ This post is defined in `content/blog/first-post/` and contains the following
 files:
 
 - `index.smd`
-- `fanzine.jpg`
 
 Another interesting thing about this post is that it uses the `layouts/post.shtml`
 template which adds at the bottom page navigation within the blog section.
@@ -24,8 +23,6 @@ Enough about Zine, let's talk about zines.
 A zine (short for *fanzine*, from "fan" + "magazine") is a non-professional
 publication created by people that want to express themselves in paper form,
 usually in relation to a cultural phenomenon of some kind.
-
-[An example of zine from 1976.](<$image.asset("fanzine.jpg").alt("A photo of a black and white flyer. The main title reads 'A night of pure energy' and the rest of the page contains a mix of pictures of guitarists interleaved with other text snippets, some seemingly taken from a professional publication of some kind, and some handwritten to announce concert night dates, presumably for the musicians in the picture.")>)
 
 ## Zines in the digital era
 
