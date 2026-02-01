@@ -19,8 +19,8 @@ defaultContentLanguage = "en"
 
 [params]
   author = "Aaron Elmquist"
-  description = "a development blog"
-  info = "follow my software adventures"
+  description = "a software blog focusing on fundamentals"
+  info = "follow me on my journey to software mastery"
   keywords = "blog,developer,software,networking,distributed-systems"
   colorScheme = "dark"
   hideColorSchemeToggle = false
