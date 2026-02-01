@@ -1,23 +1,23 @@
 ---
-.title = "Power Scaling - 2026",
-.date = @date("2026-02-01T00:00:00"),
-.author = "Aaron Elmquist",
-.layout = "post.shtml",
-.draft = false,
---- 
+title: "Power Scaling - 2026"
+date: 2026-02-01T00:00:00
+author: "Aaron Elmquist"
+draft: false
+tags: ["goals", "learning", "networking", "distributed-systems"]
+---
 
 ## The Year Ahead
 
 This year I plan to really level up as developer by tackling
 a progressively more difficult list of projects in the networking
-and distibuted system space. Each of these projects was chosen to 
+and distibuted system space. Each of these projects was chosen to
 go deeper on core concepts in computer science and not meant to
 teach any specific tool
 
 ## Readings
 
 - Designing Data Intensive Applications
-- beej's socket guide 
+- beej's socket guide
 - computer networking a top down approach
 
 ## Projects
@@ -26,13 +26,13 @@ teach any specific tool
 - Web Server
 - LC3 VM
 - Rate Limiter
-- Load Balancer 
+- Load Balancer
 - Redis or Memcached
 - NATS
-- Uptime Monitoring 
+- Uptime Monitoring
 - Bitcask
 
 ## URL Shortener Capstone
 
-2026 will conclude with a system design and implementation 
+2026 will conclude with a system design and implementation
 of a URL Shortener.

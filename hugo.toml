@@ -1,0 +1,58 @@
+baseURL = "https://elmq0022.github.io"
+title = "elmquist.dev"
+theme = "hugo-coder"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "onedark"
+    lineNos = false
+    noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[params]
+  author = "Aaron Elmquist"
+  description = "a development blog"
+  info = "follow my software adventures"
+  keywords = "blog,developer,software,networking,distributed-systems"
+  colorScheme = "dark"
+  hideColorSchemeToggle = false
+  math = true
+  katex = true
+  customCSS = ["css/custom.css"]
+  customJS = ["js/mermaid.min.js"]
+
+  [[params.social]]
+    name = "GitHub"
+    icon = "fa-brands fa-github"
+    weight = 1
+    url = "https://github.com/elmq0022"
+
+  [[params.social]]
+    name = "RSS"
+    icon = "fa-solid fa-rss"
+    weight = 2
+    url = "/posts/index.xml"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    weight = 1
+    url = "/"
+
+  [[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
+
+  [[menu.main]]
+    name = "Blog"
+    weight = 3
+    url = "/posts/"

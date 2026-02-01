@@ -1,37 +1,29 @@
 ---
-.title = "Second Post",
-.date = @date("1990-01-02T00:00:00"),
-.author = "Sample Author",
-.layout = "post.shtml",
-.draft = true,
---- 
+title: "Second Post"
+date: 1990-01-02T00:00:00
+author: "Sample Author"
+draft: true
+math: true
+---
 
 This second post is mainly here to show you that you can also create single file
 posts for convenience. The first post contains more interesting content.
 
-Don't forget to read [the official SuperMD
-docs](https://zine-ssg.io/docs/supermd/) to know how to *style* your content.
-
-
 Btw this sample website also includes the JS/CSS dependencies required to render
 math:
 
-```=mathtex
+$$
 \begin{aligned}
 f(t) &= \int_{-\infty}^\infty F(\omega) \cdot (-1)^{2 \omega t} \mathrm{d}\omega \\
 F(\omega) &= \int_{-\infty}^\infty f(t) \div (-1)^{2 \omega t} \mathrm{d}t \\
 \end{aligned}
-```
+$$
 
-```=html
-<script type="mermaid">
+<div class="mermaid">
 sequenceDiagram
     Alice->>John: Hello John, how are you?
     John-->>Alice: Great!
     Alice-)John: See you later!
-</script>
-```
+</div>
 
-This: [`(-1)^x = \cos(\pi x) + i\sin(\pi x)`]($mathtex) is an inline equation
-instead!
-
+This: $(-1)^x = \cos(\pi x) + i\sin(\pi x)$ is an inline equation instead!

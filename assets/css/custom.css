@@ -1,0 +1,12 @@
+/* Mermaid diagram styling for dark theme */
+.mermaid {
+  background: transparent;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Code block styling */
+code {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
+}
