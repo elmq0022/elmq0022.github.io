@@ -2,15 +2,11 @@
 title: "Second Post"
 date: 1990-01-02T00:00:00
 author: "Sample Author"
-draft: false
+draft: true
 math: true
 ---
 
-This second post is mainly here to show you that you can also create single file
-posts for convenience. The first post contains more interesting content.
-
-Btw this sample website also includes the JS/CSS dependencies required to render
-math:
+Leaving this as an example for math and mermaid right now.
 
 $$
 \begin{aligned}
