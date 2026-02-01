@@ -23,6 +23,15 @@ F(\omega) &= \int_{-\infty}^\infty f(t) \div (-1)^{2 \omega t} \mathrm{d}t \\
 \end{aligned}
 ```
 
+```=html
+<script type="mermaid">
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+</script>
+```
+
 This: [`(-1)^x = \cos(\pi x) + i\sin(\pi x)`]($mathtex) is an inline equation
 instead!
 

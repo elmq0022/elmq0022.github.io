@@ -11,6 +11,10 @@
 		<script defer src="$site.asset('temml.min.js').link()"></script>
 		<script defer src="$site.asset('render-mathtex.js').link()"></script>
 		<!-- /mathtex -->
+		<!-- mermaid -->
+		<script defer src="$site.asset('mermaid.min.js').link()"></script>
+		<script defer src="$site.asset('render-mermaid.js').link()"></script>
+		<!-- mermaid -->
 		<super>
 	</head>
 	<body id="body">
