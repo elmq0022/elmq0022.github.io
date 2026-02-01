@@ -2,7 +2,7 @@
 title: "Second Post"
 date: 1990-01-02T00:00:00
 author: "Sample Author"
-draft: true
+draft: false
 math: true
 ---
 
