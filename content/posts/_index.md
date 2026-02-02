@@ -1,10 +1,4 @@
 ---
-title: "Blog"
-description: "Philosophy and Approach"
+title: "Posts"
+description: ""
 ---
-
-## Recommended Posts
-
-Here a selection of posts that I recommend
-
-- 
