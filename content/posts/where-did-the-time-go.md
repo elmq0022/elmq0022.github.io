@@ -39,9 +39,8 @@ Completing and documenting these should deepen my understanding of the systems I
 
 ## Project Sequence
 
-- [ ] Echo Server
+- [x] Echo Server
 - [ ] Web Server
-- [ ] LC3 VM
 - [ ] Rate Limiter
 - [ ] Load Balancer
 - [ ] Redis or Memcached
