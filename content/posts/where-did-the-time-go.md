@@ -40,7 +40,7 @@ Completing and documenting these should deepen my understanding of the systems I
 ## Project Sequence
 
 - [x] Echo Server
-- [ ] Web Server
+- [x] Web Server
 - [ ] Rate Limiter
 - [ ] Reverse Proxy
 - [ ] Load Balancer
