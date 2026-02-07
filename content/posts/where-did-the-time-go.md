@@ -41,7 +41,7 @@ Completing and documenting these should deepen my understanding of the systems I
 
 - [x] Echo Server
 - [x] Web Server
-- [ ] Rate Limiter
+- [x] Rate Limiter
 - [ ] Reverse Proxy
 - [ ] Load Balancer
 - [ ] Redis or Memcached
