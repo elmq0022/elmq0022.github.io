@@ -10,3 +10,22 @@ code {
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0;
 }
+
+/* adds a light boarder around code blocks  */
+pre {
+  border: 1px solid #ccc;
+}
+
+body.colorscheme-dark pre {
+  border: 1px solid #4f4f4f;
+}
+
+body.colorscheme-auto pre {
+  border: 1px solid #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.colorscheme-auto pre {
+    border: 1px solid #4f4f4f;
+  }
+}

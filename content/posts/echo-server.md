@@ -8,7 +8,7 @@ tags: ["learning", "server", "networking"]
 
 ## Intro
 
-This echo-server was the first in a series of programming
+This echo server was the first in a series of programming
 exercises chosen to increase my systems programming depth.
 
 ## TCP With Go's Standard Library
