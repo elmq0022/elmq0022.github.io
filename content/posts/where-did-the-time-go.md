@@ -39,8 +39,8 @@ Completing and documenting these should deepen my understanding of the systems I
 
 ## Project Sequence
 
-- [x] [Echo Server](/posts/echo-server/)
-- [x] Web Server
+- [x] [Echo Server]({{< ref "echo-server" >}})
+- [x] [Web Server]({{< ref "web-server" >}})
 - [x] Rate Limiter
 - [ ] Reverse Proxy
 - [ ] Load Balancer
