@@ -1,6 +1,6 @@
 ---
 title: "Echo Server"
-date: 2026-07-01T00:00:00
+date: 2026-02-07T00:00:00
 author: "Aaron Elmquist"
 draft: false
 tags: ["goals", "learning", "server", "networking"]
