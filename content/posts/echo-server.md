@@ -3,7 +3,7 @@ title: "Echo Server"
 date: 2026-02-07T00:00:00
 author: "Aaron Elmquist"
 draft: false
-tags: ["goals", "learning", "server", "networking"]
+tags: ["learning", "server", "networking"]
 ---
 
 ## Intro
