@@ -6,7 +6,7 @@ draft: false
 tags: ["learning", "server", "networking"]
 ---
 
-## Intro
+## Introduction
 
 This web server is the second project in my 2026 programming series, following the [echo server]({{< ref "echo-server" >}}).
 The goal here was to implement a simple HTTP/1.1 protocol on top of TCP.
