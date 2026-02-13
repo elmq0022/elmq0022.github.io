@@ -41,8 +41,8 @@ Completing and documenting these should deepen my understanding of the systems I
 
 - [x] [Echo Server]({{< ref "echo-server" >}})
 - [x] [Web Server]({{< ref "web-server" >}})
-- [x] Rate Limiter
-- [ ] Load Balancer
+- [x] [Rate Limiter]({{< ref "rate-limiter" >}})
+- [x] Load Balancer
 - [ ] Redis or Memcached
 - [ ] NATS
 - [ ] Uptime Monitoring
