@@ -43,15 +43,17 @@ Completing and documenting these should deepen my understanding of the systems I
 - [x] [Web Server]({{< ref "web-server" >}})
 - [x] [Rate Limiter]({{< ref "rate-limiter" >}})
 - [x] Load Balancer
-- [ ] Redis or Memcached
-- [ ] NATS
-- [ ] Uptime Monitoring
+- [x] Redis or Memcached
+- [x] NATS
 - [ ] Bitcask
 
 ## Capstone Project
 
-The capstone of this sequence will conclude with the design and implementation of a URL Shortener.
-This is the classic system design problem and seems deceptively simple on the surface.
-However there is plenty to discuss here in terms of design and tradeoffs.
-Working through the design and tradeoffs prior to implementation should strengthen 
-my design skills significantly.
+TBD - I'm currently evaluating projects.
+
+## Updates (March 4, 2026)
+1. I originally had an uptime monitoring project scheduled, but it would involve a lot of scheduled CRUD programming and doesn't really pique my interest, so I removed it from the list.
+
+2. I had been considering a URL shortener for the capstone, but I'm not really looking forward to that project either, so I'm evaluating other options.
+
+3. I expected this list to take most of the year, but I'm significantly ahead of that pace.
