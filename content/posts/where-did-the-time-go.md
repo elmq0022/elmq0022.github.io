@@ -43,17 +43,31 @@ Completing and documenting these should deepen my understanding of the systems I
 - [x] [Web Server]({{< ref "web-server" >}})
 - [x] [Rate Limiter]({{< ref "rate-limiter" >}})
 - [x] Load Balancer
-- [x] Redis or Memcached
-- [x] NATS
-- [ ] Bitcask
+- [x] Redis Like
+- [x] NATS Core Like
+- [ ] Container Runtime
 
 ## Capstone Project
 
 TBD - I'm currently evaluating projects.
 
 ## Updates (March 4, 2026)
+
 1. I originally had an uptime monitoring project scheduled, but it would involve a lot of scheduled CRUD programming and doesn't really pique my interest, so I removed it from the list.
 
 2. I had been considering a URL shortener for the capstone, but I'm not really looking forward to that project either, so I'm evaluating other options.
 
 3. I expected this list to take most of the year, but I'm significantly ahead of that pace.
+
+## Updates (March 5, 2026)
+
+1. I started planning Bitcask and considered the architecture.
+   It is really designed for very high throughput at the expense of an in-memory index.
+   That is fine, but I wasn't looking to build a server component for this.
+   The architecture also doesn't really make sense for an embedded database.
+   I've decided to go closer to the metal and try writing a program that runs an isolated container similar to Docker.
+   Now I'll have the opportunity to really learn namespaces and cgroups.
+
+2. I'm thinking my capstone for the year might be a NATS/JetStream project:
+   a durable, pull-based pub/sub system with replay support. I find it interesting,
+   and it has several moving pieces.
