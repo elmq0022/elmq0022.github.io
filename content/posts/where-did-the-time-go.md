@@ -46,10 +46,8 @@ Completing and documenting these should deepen my understanding of the systems I
 - [x] Redis Like
 - [x] NATS Core Like
 - [ ] Container Runtime
-
-## Capstone Project
-
-TBD - I'm currently evaluating projects.
+- [ ] Distributed Log w/ Raft
+- [ ] Distributed KV Store
 
 ## Updates (March 4, 2026)
 
@@ -71,3 +69,10 @@ TBD - I'm currently evaluating projects.
 2. I'm thinking my capstone for the year might be a NATS/JetStream project:
    a durable, pull-based pub/sub system with replay support. I find it interesting,
    and it has several moving pieces.
+
+## Update (March 6, 2026)
+
+I've finalized the project list with projects left.
+A container runtime so I can learn how isolation is done.
+A distribute log to learn about how consensus drives distributed systems.
+The dist KV store is the simplest extension to raft that's useful.
