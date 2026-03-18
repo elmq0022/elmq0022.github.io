@@ -45,7 +45,7 @@ Completing and documenting these should deepen my understanding of the systems I
 - [x] Load Balancer
 - [x] Redis Like
 - [x] NATS Core Like
-- [ ] Container Runtime
+- [x] Container Runtime
 - [ ] Distributed Log w/ Raft
 - [ ] Distributed KV Store
 
@@ -76,3 +76,10 @@ I've finalized the project list with projects left.
 A container runtime so I can learn how isolation is done.
 A distribute log to learn about how consensus drives distributed systems.
 The dist KV store is the simplest extension to raft that's useful.
+
+## Update (March 17, 2026)
+
+Adds the container runtime project.
+The namespaces, cgroups, rootfs concepts weren't terrible.
+The mechanics of the layer extraction and dealing the whiteout layers was
+more of a challenge than I was expecting. 
